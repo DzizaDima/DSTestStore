@@ -1,0 +1,22 @@
+<div class="product-card product--{{ product.id }}">
+    <div class="product-card__media" style="--bg-color: {{ bg_color }}; --bg-hover-color: {{ bg_hover_color }};">
+        <div class="product-card__media-image">
+            {{ product.featured_image | image_url: width: 600 | image_tag }}
+        </div>
+
+        {% if tags != blank %}
+            {% render 'product-tags', tags: tags %}
+        {% endif %}
+
+        {% if product.metafields.custom.price_per_day != blank %}
+            <div class="price-per-day">
+                {{ product.metafields.custom.price_per_day | times: 100 | money }} <span>/{{ 'products.product.day' | t }}</span>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="product-card__info">
+        <a href="{{ product.url }}" class="product-card__info-title">{{ product.title }}</a>
+        {% render 'simple-product-price', product: product %}
+    </div>
+</div>

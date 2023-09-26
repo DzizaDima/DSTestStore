@@ -1,0 +1,38 @@
+{% assign tags_formatted = tags | split: ',' %}
+
+<div class="product-tags">
+    {% for tag in tags_formatted %}
+        {% case tag %}
+            {% when "immunity" %}
+                <div class="product-tags__tag product-tags__tag--immunity">
+                    {% render 'icon-shield' %}
+                    <span>{{ 'products.product.tags.immunity' | t }}</span>
+                </div>
+            {% when "stress" %}
+                <div class="product-tags__tag product-tags__tag--stress">
+                    {% render 'icon-stress' %}
+                    <span>{{ 'products.product.tags.stress' | t }}</span>
+                </div>
+            {% when "mobility" %}
+                <div class="product-tags__tag product-tags__tag--mobility">
+                    {% render 'icon-mobility' %}
+                    <span>{{ 'products.product.tags.mobility' | t }}</span>
+                </div>
+            {% when "heart" %}
+                <div class="product-tags__tag product-tags__tag--heart">
+                    {% render 'icon-heart' %}
+                    <span>{{ 'products.product.tags.heart' | t }}</span>
+                </div>
+            {% when "energy" %}
+                <div class="product-tags__tag product-tags__tag--energy">
+                    {% render 'icon-energy' %}
+                    <span>{{ 'products.product.tags.energy' | t }}</span>
+                </div>
+            {% when "brain" %}
+                <div class="product-tags__tag product-tags__tag--brain">
+                    {% render 'icon-brain' %}
+                    <span>{{ 'products.product.tags.brain' | t }}</span>
+                </div>
+          {% endcase %}
+    {% endfor %}
+</div>

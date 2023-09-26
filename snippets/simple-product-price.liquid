@@ -1,0 +1,6 @@
+<div class="product-price-wrapper">
+    <div class="product-price {% if product.compare_at_price > product.price %}product-price--sale{% endif %}">
+        <span class="price price-sale">{{ product.compare_at_price | money }}</span>
+        <span class="price price-regular">{{ product.price | money }}</span>
+    </div>   
+</div>
