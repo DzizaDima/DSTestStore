@@ -1,0 +1,96 @@
+@import 'mixins/media.scss';
+
+.custom-reviews-section{
+    font-family: 'F37 Ginger';
+
+    .page-width{
+        @include to-width(1100px){
+            padding: 0 3rem;
+        }
+
+        @include sm-max {
+            padding: 0;
+        }
+    }
+
+    .section-title{
+        width: fit-content;
+        margin: 0 auto 60px;
+        font-family: 'F37 Ginger';
+        color: #363636;
+        font-size: 34px;
+        font-weight: 400;
+        line-height: 42px;
+        letter-spacing: 0;
+
+        @include sm-max {
+            padding: 0 15px;
+            font-size: 30px;
+            margin: 0 auto 30px;
+        }
+    }
+
+    .section-inner{
+        .custom-reviews-slider{
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 30px;
+            
+            @include to-width(1100px){
+                padding: 0 20px 30px;
+            }
+
+            .swiper-slide{
+                height: auto;
+                max-height: 100%;
+            }
+
+            .swiper-pagination{
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                z-index: 2;
+
+                &-bullet{
+                    background-color: #fff;
+                    border: 1px solid #363636;
+                    width: 10px;
+                    height: 10px;
+
+                    &-active{
+                        background-color: #00AFA9;
+                        border: 1px solid #fff;
+                    }
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev{
+              display: none;
+
+                @include to-width(1100px){
+                    display: flex;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                }
+
+                &::after{
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #00AFA9;
+                }
+            }
+
+            .swiper-button-next{
+                right: 5px;
+            }
+
+            .swiper-button-prev{
+                left: 5px;
+            }
+        }
+    }
+}
