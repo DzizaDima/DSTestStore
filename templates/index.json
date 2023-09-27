@@ -1,1 +1,71 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Browse our latest products","heading_size":"h0"}},"button":{"type":"buttons","settings":{"button_label_1":"Shop all","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":true,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","button"],"settings":{"image_overlay_opacity":40,"image_height":"large","desktop_content_position":"bottom-center","show_text_box":false,"desktop_content_alignment":"center","color_scheme":"inverse","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":false,"show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"title":"Featured products","heading_size":"h2","description":"","show_description":false,"description_style":"body","collection":"all","products_to_show":8,"columns_desktop":4,"full_width":false,"show_view_all":true,"view_all_style":"solid","enable_desktop_slider":false,"color_scheme":"background-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"enable_quick_add":false,"columns_mobile":"2","swipe_on_mobile":false,"padding_top":44,"padding_bottom":36}}},"order":["image_banner","featured_collection"]}
+{
+  "sections": {
+    "5a782e86-bcf5-4ac6-8151-5d8628d386a2": {
+      "type": "featured-products",
+      "blocks": {
+        "f600102e-67f3-4d6c-a905-c54ddeade47e": {
+          "type": "product",
+          "settings": {
+            "product": "immunity",
+            "bg_color": "",
+            "bg_hover_color": "#fff9c0",
+            "tags": "immunity,stress"
+          }
+        },
+        "146a75f6-1342-4242-8894-8bffb2a67151": {
+          "type": "product",
+          "settings": {
+            "product": "cloud-nine",
+            "bg_color": "",
+            "bg_hover_color": "#88f4d6",
+            "tags": "mobility,stress"
+          }
+        },
+        "96898191-987e-4ba8-9984-a245752d101a": {
+          "type": "product",
+          "settings": {
+            "product": "heart-minds",
+            "bg_color": "",
+            "bg_hover_color": "#87bfff",
+            "tags": "heart,energy"
+          }
+        },
+        "ba8ace2a-22e1-4856-9b70-5d1127b878ac": {
+          "type": "product",
+          "settings": {
+            "product": "in-the-zone",
+            "bg_color": "",
+            "bg_hover_color": "#69c792",
+            "tags": "brain,energy"
+          }
+        }
+      },
+      "block_order": [
+        "f600102e-67f3-4d6c-a905-c54ddeade47e",
+        "146a75f6-1342-4242-8894-8bffb2a67151",
+        "96898191-987e-4ba8-9984-a245752d101a",
+        "ba8ace2a-22e1-4856-9b70-5d1127b878ac"
+      ],
+      "settings": {
+        "title": "Have you had your daily dose of vit today?",
+        "subtitle": "Whether you need a daily pick-me up or a little sleep support, our products are developed with the end goal in mind. Optimally-dosed, highly bioavailable formulas means you can see and feel results that set you on a path to better health.",
+        "btn_link": "shopify:\/\/collections",
+        "btn_title": "See All Products",
+        "btn_color_scheme": "scheme-9b966cdd-b19a-4225-8565-035aa18e3e76",
+        "slider_slidesperview_mobile": 1,
+        "slider_slidesperview_tablet": 2,
+        "slider_slidesperview_desktop": 4,
+        "slider_spacebetween_mobile": 0,
+        "slider_spacebetween_tablet": 26,
+        "slider_spacebetween_desktop": 26,
+        "padding_top": 36,
+        "padding_top_mob": 36,
+        "padding_bottom": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "5a782e86-bcf5-4ac6-8151-5d8628d386a2"
+  ]
+}

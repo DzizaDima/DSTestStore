@@ -117,8 +117,17 @@
       "inventory_out_of_stock": "Out of stock",
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
+      "day": "day",
       "on_sale": "Sale",
       "product_variants": "Product variants",
+      "tags":{
+        "immunity":"immunity",
+        "stress": "stress",
+        "mobility": "mobility",
+        "heart": "heart",
+        "energy": "energy",
+        "brain": "brain"
+      },
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",

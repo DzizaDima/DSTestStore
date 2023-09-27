@@ -1,0 +1,41 @@
+@mixin xs-max {
+  @media screen and (max-width: 479px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: 750px) {
+    @content;
+  }
+}
+
+@mixin sm-max {
+  @media screen and (max-width: 749px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: 990px) {
+    @content;
+  }
+}
+
+@mixin to-md {
+  @media only screen and (max-width: 991.98px) {
+      @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin track123-breakpoint {
+  @media screen and (min-width: 833px) {
+    @content;
+  }
+}

@@ -1,0 +1,96 @@
+@import 'mixins/media.scss';
+
+.featured-products-section{
+    font-family: 'F37 Ginger';
+    letter-spacing: 0;
+
+    .section-header{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 80px;
+
+        @include sm-max {
+            margin-bottom: 40px;
+        }
+
+        &__title{
+            max-width: 620px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: 'F37 Ginger';
+            color: #363636;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 130%; 
+            letter-spacing: 0;
+
+            @include sm-max {
+                font-size: 34px;
+                line-height: 120%;
+            }
+        }
+
+        &__subtitle{
+            max-width: 740px;
+            margin: 30px auto 0;
+            text-align: center;
+            color: #363636;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 158%;
+
+            @include sm-max {
+                margin: 20px auto 0;
+            }
+        }
+    }
+
+    .section-inner{
+        .featured-products-slider{
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 30px;
+
+            .swiper-pagination{
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+
+                &-bullet{
+                    background-color: #fff;
+                    border: 1px solid #363636;
+                    width: 10px;
+                    height: 10px;
+
+                    &-active{
+                        background-color: #00AFA9;
+                        border: 1px solid #fff;
+                    }
+                }
+            }
+        }
+
+        .see-all{
+            margin: 50px auto 0;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 24px;
+            padding: 16px 46px;
+            text-decoration: none;
+            display: block;
+            width: fit-content;
+            transition: all ease-in-out 0.3s;
+            min-width: 270px;
+            text-align: center;
+
+            @include sm-max {
+                margin-top: 40px;
+            }
+
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+}
