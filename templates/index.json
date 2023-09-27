@@ -58,14 +58,77 @@
         "slider_spacebetween_mobile": 0,
         "slider_spacebetween_tablet": 26,
         "slider_spacebetween_desktop": 26,
-        "padding_top": 36,
-        "padding_top_mob": 36,
-        "padding_bottom": 36,
-        "padding_bottom_mob": 36
+        "padding_top": 100,
+        "padding_top_mob": 50,
+        "padding_bottom": 100,
+        "padding_bottom_mob": 30
+      }
+    },
+    "ada7e702-d4bb-4c97-8b81-5c6886d1754d": {
+      "type": "custom-reviews",
+      "blocks": {
+        "a64f9865-9dc3-4dc2-bbd5-4cbda36f7a23": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ellipse_37.png",
+            "raiting": 5,
+            "title": "Walking on Sunshine",
+            "text": "These little softgels have helped boost my mood and keep me in a positive head space during all the chaos of everyone coming back to work since covid. I suffer from anxiety and depression and this has helped",
+            "author": "Amber",
+            "product": "immunity",
+            "product_title": "Pocketful of Sunshine"
+          }
+        },
+        "96973430-42a4-44cd-afce-a22e66848e69": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ellipse_37_1.png",
+            "raiting": 4,
+            "title": "Complete one Eighty in the Mood Department",
+            "text": "I’ve been one to get frustrated easily while dealing with stressful situations, either while working or with people. But I got annoyed with feeling this way, so I decided to look online and see what  I could find. Came across these and ...",
+            "author": "Aicia",
+            "product": "cloud-nine",
+            "product_title": ""
+          }
+        },
+        "459e1b77-4331-4132-86f8-be5fdfe63be2": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ellipse_37_2.png",
+            "raiting": 5,
+            "title": "Love this!!!",
+            "text": "I love this vitamin, it is so tiny but packs a major punch! This has helped massively with my anxiety and has helped boost me up a little too!",
+            "author": "Amber",
+            "product": "heart-minds",
+            "product_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "a64f9865-9dc3-4dc2-bbd5-4cbda36f7a23",
+        "96973430-42a4-44cd-afce-a22e66848e69",
+        "459e1b77-4331-4132-86f8-be5fdfe63be2"
+      ],
+      "settings": {
+        "title": "Why People Love Us",
+        "bg_color": "#dffffd",
+        "product_bg_color": "#00afa9",
+        "product_bg_hover_color": "#00ccc5",
+        "slider_slidesperview_mobile": 1,
+        "slider_slidesperview_tablet": 2,
+        "slider_slidesperview_desktop": 3,
+        "slider_spacebetween_mobile": 21,
+        "slider_spacebetween_tablet": 30,
+        "slider_spacebetween_desktop": 60,
+        "padding_top": 86,
+        "padding_top_mob": 30,
+        "padding_bottom": 100,
+        "padding_bottom_mob": 100
       }
     }
   },
   "order": [
-    "5a782e86-bcf5-4ac6-8151-5d8628d386a2"
+    "5a782e86-bcf5-4ac6-8151-5d8628d386a2",
+    "ada7e702-d4bb-4c97-8b81-5c6886d1754d"
   ]
 }

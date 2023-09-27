@@ -34,8 +34,14 @@
   }
 }
 
-@mixin track123-breakpoint {
-  @media screen and (min-width: 833px) {
-    @content;
+@mixin from-width($width) {
+  @media only screen and (min-width: $width) {
+      @content;
+  }
+}
+
+@mixin to-width($width) {
+  @media only screen and (max-width: $width) {
+      @content;
   }
 }

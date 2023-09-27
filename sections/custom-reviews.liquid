@@ -1,14 +1,12 @@
 {% if section.blocks.size > 0 %}
-  {{ 'featured-products.min.css' | asset_url | stylesheet_tag }}
-  {{ 'product-card-new.min.css' | asset_url | stylesheet_tag }}
+  {{ 'custom-reviews.min.css' | asset_url | stylesheet_tag }}
+  {{ 'review-card.min.css' | asset_url | stylesheet_tag }}
 
   {% liquid
     assign title = section.settings.title
-    assign subtitle = section.settings.subtitle
-
-    assign btn_link = section.settings.btn_link
-    assign btn_title = section.settings.btn_title
-    assign btn_color_scheme = section.settings.btn_color_scheme
+    assign bg_color = section.settings.bg_color
+    assign product_bg_color = section.settings.product_bg_color 
+    assign product_bg_hover_color = section.settings.product_bg_hover_color
 
     assign padding_top = section.settings.padding_top
     assign padding_bottom = section.settings.padding_bottom
@@ -24,64 +22,64 @@
     assign slider_spacebetween_desktop = section.settings.slider_spacebetween_desktop
   %}
 
-  {% render 'section-spaces', 
-    section_id: section.id ,
+  {% render 'section-spaces',
+    section_id: section.id,
     padding_top: padding_top,
     padding_bottom: padding_bottom,
     padding_top_mob: padding_top_mobile,
     padding_bottom_mob: padding_bottom_mobile
   %}
 
-  <div class="featured-products-section" id="section--{{ section.id }}">
+  <div
+    class="custom-reviews-section"
+    id="section--{{ section.id }}"
+    style="--bg-color: {{ bg_color }}; --bg-product-color: {{ product_bg_color }}; --bg-product-hover-color: {{ product_bg_hover_color }};"
+  >
     <div class="page-width">
-      {% if title != blank or subtitle != blank %}
-        <div class="section-header">
-          {% if title != blank %}
-            <h2 class="section-header__title">{{ title }}</h2>
-          {% endif %}
+      {% if title != blank %}
+        <h2 class="section-title">{{ title }}</h2>
+      {% endif %}
 
-          {% if subtitle != blank %}
-            <div class="section-header__subtitle">
-              {{ subtitle }}
-            </div>
-          {% endif %}
-        </div>
+      <div class="section-inner">
+        <div class="custom-reviews-slider">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% liquid
+                assign image = block.settings.image
+                assign raiting = block.settings.raiting
+                assign title = block.settings.title
+                assign text = block.settings.text
+                assign author = block.settings.author
+                assign product = block.settings.product
+                assign product_title = block.settings.product_title
+              %}
 
-        <div class="section-inner">
-          <div class="featured-products-slider">
-            <div class="swiper-wrapper">
-              {% for block in section.blocks %}
-                {% liquid
-                  assign selected_product = block.settings.product
-                  assign bg_color = block.settings.bg_color
-                  assign bg_hover_color = block.settings.bg_hover_color
-                  assign tags = block.settings.tags
-                %}
-
+              {% if title != blank and text != blank and author != blank %}
                 <div class="swiper-slide">
-                  {% render 'product-card-new',
-                    product: selected_product,
-                    tags: tags,
-                    bg_color: bg_color,
-                    bg_hover_color: bg_hover_color
+                  {% render 'review-card',
+                    image: image,
+                    raiting: raiting,
+                    title: title,
+                    text: text,
+                    author: author,
+                    product: product,
+                    product_title: product_title
                   %}
                 </div>
-              {% endfor %}
-            </div>
-            <div class="swiper-pagination"></div>
+              {% endif %}
+            {% endfor %}
           </div>
-
-          {% if btn_link != blank and btn_title != blank %}
-            <a class="see-all color-{{ btn_color_scheme }}" href="{{ btn_link }}">{{ btn_title }}</a>
-          {% endif %}
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const productsSlider = new Swiper('#section--{{ section.id }} .featured-products-slider', {
+      const reviewsSlider = new Swiper('#section--{{ section.id }} .custom-reviews-slider', {
         slidesPerView: {{ slider_slidesperview_mobile }},
         spaceBetween: {{ slider_spacebetween_mobile }},
         lazy: {
@@ -95,12 +93,16 @@
           el: "#section--{{ section.id }} .swiper-pagination",
           clickable: true,
         },
+        navigation: {
+          nextEl: "#section--{{ section.id }} .swiper-button-next",
+          prevEl: "#section--{{ section.id }} .swiper-button-prev",
+        },
         breakpoints: {
           750: {
             slidesPerView: {{ slider_slidesperview_tablet }},
             spaceBetween: {{ slider_spacebetween_tablet }},
           },
-          992: {
+          1100: {
             slidesPerView: {{ slider_slidesperview_desktop }},
             spaceBetween: {{ slider_spacebetween_desktop }},
           }
@@ -112,7 +114,7 @@
 
 {% schema %}
 {
-  "name": "Featured Products",
+  "name": "Custom Reviews",
   "settings": [
     {
       "type": "text",
@@ -120,25 +122,22 @@
       "label": "Section Title"
     },
     {
-      "type": "inline_richtext",
-      "id": "subtitle",
-      "label": "Section Subtitle"
+      "type": "color",
+      "id": "bg_color",
+      "label": "Card Background Color",
+      "default": "#ffffff"
     },
     {
-      "type": "url",
-      "id": "btn_link",
-      "label": "Button Link"
+      "type": "color",
+      "id": "product_bg_color",
+      "label": "Product Background Color",
+      "default": "#ffffff"
     },
     {
-      "type": "text",
-      "id": "btn_title",
-      "label": "Button Title",
-      "default": "See All Products"
-    },
-    {
-      "type": "color_scheme",
-      "id": "btn_color_scheme",
-      "label": "Button Color Scheme"
+      "type": "color",
+      "id": "product_bg_hover_color",
+      "label": "Product Background Hover Color",
+      "default": "#ffffff"
     },
     {
       "type": "header",
@@ -245,39 +244,56 @@
   ],
   "blocks": [
     {
-      "type": "product",
-      "name": "Product",
+      "type": "review",
+      "name": "Review",
       "limit": 8,
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "range",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "id": "raiting",
+          "label": "Raiting",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
         {
           "type": "product",
           "id": "product",
           "label": "Product"
         },
         {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Background Color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "bg_hover_color",
-          "label": "Background Hover Color",
-          "default": "#ffffff"
-        },
-        {
           "type": "text",
-          "id": "tags",
-          "label": "Tags",
-          "info": "Write the tags like this: tag1,tag2...Without spaces. You can use this tags: immunity,stress,mobility,heart,energy,brain"
+          "id": "product_title",
+          "label": "Product Title",
+          "info": "If empty, default product name will be used"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Featured Products"
+      "name": "Custom Reviews"
     }
   ]
 }

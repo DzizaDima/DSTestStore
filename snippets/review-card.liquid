@@ -1,0 +1,36 @@
+<div class="review-card">
+    <div class="review-card__photo-wrapper">
+        {% if image != blank %}
+            {{ image | image_url: width: 140 | image_tag }}
+        {% else %}
+            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+    </div>
+
+    <div class="review-card__raiting">
+        {% for i in (1..raiting) %}
+            <span class="star">
+                {% render 'icon-star' %}
+            </span>
+        {% endfor %}
+    </div>
+
+    <h4 class="review-card__title">{{ title }}</h4>
+
+    <div class="review-card__text">"{{ text }}"</div>
+
+    <span class="review-card__author">{{ author }}</span>
+
+    {% if product != blank %}
+        {% assign title_product = product_title | default: product.title %}
+        <a class="review-card__product" href="{{ product.url }}">
+            <div class="review-card__product-image">
+                {{ product.featured_image | image_url: width: 100 | image_tag }}
+            </div>
+
+            <span class="review-card__product-title">{{ title_product }}</span>
+
+            {% render 'icon-arrow' %}
+        </a>
+    {% endif %}
+</div>
